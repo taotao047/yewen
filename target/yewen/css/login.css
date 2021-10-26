@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-position: 50% -39%;
+}
+/*登陆框*/
+.loginInputBoxes{
+    position: absolute;
+    top: 321px;
+    left: 657px;
+}
+/*每一项的设置*/
+.loginInputBoxes .inputBox{
+    margin-top: 6px;
+    border: solid 2px #9F9F9F;
+    border-radius: 8px;
+    height: 26px;
+    line-height: 26px;
+}
+.loginInputBoxes .inputBox input{
+    display: inline-block;
+    border-style: none;
+    font-size: 16px;
+}
+.loginInputBoxes button{
+    width: 75%;
+    height: 30px;
+    border-style: none;
+    background-color: #ff9600;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 9px;
+    margin-left: 26px;
+}
+.loginInputBoxes button:hover{
+    background-color: #ff7e00;
+}
+#infoBox{
+    margin-top: 10px;
+    width: 100%;
+    height: 25px;
+    /*background-color: pink;*/
+}

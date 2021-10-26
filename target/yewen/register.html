@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+    <div class="header">注册</div>
+    <hr>
+    <div class="inputBoxs">
+        <div class="a-inputBox">
+            <label>
+                <i class="layui-icon layui-icon-cellphone" style="font-size: 24px;float:left;margin-top: 2px;margin-left: 4px"></i>
+                <input type="text" id="uPhone"placeholder="请输入手机号">
+            </label>
+        </div>
+        <div class="a-inputBox">
+            <label>
+                <i class="layui-icon layui-icon-username" style="font-size: 24px;float:left;margin-top: 2px;margin-left: 4px"></i>
+                <input type="text" id="uID" placeholder="请输入用户名">
+            </label>
+        </div>
+        <div class="a-inputBox">
+            <label>
+                <i class="layui-icon layui-icon-email" style="font-size: 24px;float:left;margin-top: 2px;margin-left: 4px"></i>
+                <input type="text" id="uEmail" placeholder="请输入邮箱">
+            </label>
+        </div>
+        <div class="a-inputBox">
+            <label>
+                <i class="layui-icon layui-icon-password" style="font-size: 24px;float:left;margin-top: 2px;margin-left: 4px"></i>
+                <input type="password" id="uPassword" placeholder="请输入密码">
+            </label>
+        </div>
+        <div class="a-inputBox">
+            <button onclick="submit()">立即注册</button>
+        </div>
+        <div id="registerInfo">信息窗口</div>
+    </div>
+    <div id="protocolBox">
+        <input type="checkbox" name="agreeBox" id="agreeBox">
+        <span>
+            请阅读并同意 <a href="javascript:;" >《用户服务协议》</a> 和 <a href="javascript:;">《隐私政策》</a>
+        </span>
+
+    </div>
+    <script src="layui/layui.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>
+<script>
+
+</script>

@@ -1,0 +1,103 @@
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #fcfdf8;
+}
+
+.header {
+    margin-top: 34px;
+    margin-left: 195px;
+    font-size: 24px;
+    width: 200px;
+    height: 64px;
+    /*background-color: skyblue;*/
+    text-align: center;
+    line-height: 64px;
+    z-index: 2;
+}
+
+.inputBoxs {
+    position: absolute;
+    z-index: 1;
+    width: 335px;
+    height: 439px;
+    /*background-color: pink;*/
+    top: 133px;
+    left: 38%;
+}
+
+.inputBoxs > .a-inputBox {
+    height: 38px;
+    /*background-color: seagreen;*/
+    margin-top: 15px;
+    padding-left: 45px;
+}
+
+.a-inputBox label {
+    display: block;
+    border: 2px solid #9F9F9F;
+    border-radius: 12px;
+    width: 290px;
+    height: 30px;
+    float: left;
+    margin-top: 4px;
+}
+
+/*.a-inputBox label:hover{*/
+/*    border-color: #4285f4;*/
+/*}*/
+.inputBoxs .a-inputBox input {
+    border: 0 none;
+    width: 86%;
+    height: 30px;
+    font-size: 16px;
+    float: left;
+    margin-left: 5px;
+}
+
+/*立即注册按钮*/
+.inputBoxs .a-inputBox:nth-last-child(2) button  {
+    border-style: none;
+    background-color: #ff9600;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+/*立即注册按钮变深色*/
+.inputBoxs .a-inputBox:nth-last-child(1) button:hover{
+    background-color: #ff7e00;
+}
+
+
+#protocolBox {
+    position: absolute;
+    height: 20px;
+    top: 445px;
+    left: 622px;
+    z-index: 1;
+}
+#protocolBox a{
+    color: #37b5f8;
+}
+#protocolBox a:hover{
+    text-decoration: underline;
+}
+#protocolBox span{
+    font-size: 14px;
+    padding-bottom: 2px;
+}
+#protocolBox input {
+    width: 18px;
+    height: 16px;
+}
+#registerInfo {
+    visibility: hidden;
+    text-align: center;
+    margin-top: 4%;
+    padding-left: 45px;
+    color: red;
+}

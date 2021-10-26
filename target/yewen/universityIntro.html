@@ -1,0 +1,117 @@
+
+<html>
+
+<head>
+    <meta http-equiv="content-Type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University-Intro</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="css/universityIntro.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo layui-hide-xs layui-bg-black">
+                业问-专业解惑
+            </div>
+            <ul class="layui-nav layui-layout-left">
+                <!-- 移动端显示 -->
+                <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
+                    <i class="layui-icon layui-icon-spread-left"></i>
+                </li>
+                <li class="layui-nav-item layui-hide-xs"><a href="yewen.html">主页</a></li>
+                <li class="layui-nav-item layui-hide-xs"><a href="help.html">帮助</a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+                    <a href="javascript:;">
+                        <img src="images/userPhoto.jpg" class="layui-nav-img">
+                        <span id="uID"></span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">个人中心</a></dd>
+                        <dd><a href="">消息</a></dd>
+                        <dd><a href="">注销</a></dd>
+                    </dl>
+                </li>
+                
+                <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-more-vertical"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <fieldset class="layui-elem-field layui-field-title ">
+                <legend style=" padding-top: 30px;font-size: 24px;">
+                    <span>
+                        汕头大学
+                    </span>
+                    <i class="layui-icon layui-icon-right layui-font-24"></i>
+                    <a href="javascript:;">
+                        <span id="chooseCollege">
+                            选择学院<i class="layui-icon layui-icon-triangle-d"></i>
+                        </span>
+                    </a>
+
+                </legend>
+            </fieldset>
+            <div id="searchGuidersBox">
+                <input type="text" class="layui-input">
+                <button id="searchGuidersBtn" class="layui-btn layui-btn-normal">搜索</button>
+                <div id="fresh" class="layui-icon layui-icon-refresh layui-font-24"></div>
+            </div>
+            <div id="guidersBox">
+                <table id="guiders"></table>
+            </div>
+            <div class="layui-anim layui-anim-up" id="flowChatBox">
+                <a href="javascript:closeChatBlock();"><i class="layui-icon layui-icon-close-fill"
+                        style="font-size: 30px;"></i></a>
+                <!--聊天框-->
+                <div id="chatBox">
+                    <span></span>
+                </div>
+                <div id="sendBox">
+                    <input type="text">
+                    <button onclick="sendMsg()">发送</button>
+                </div>
+            </div>
+            <div class="proRankBox layui-panel">
+                <p>汕头大学实时热度专业排行</p>
+                <ul>
+                    <li>1.金融学</li>
+                    <li>2.国际贸易</li>
+                    <li>3.视觉传达设计</li>
+                    <li>4.法学</li>
+                    <li>5.工商管理</li>
+                    <li>6.汉语言文学</li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-anim layui-anim-up" id="chatTips">
+            <br>
+            <span style="color: blue">xxxxxxxxx</span>想向您咨询问题。
+            <button onclick="accept(this)">接受</button>
+            <button onclick="refuse(this)">拒绝</button>
+        </div>
+        <div class="layui-footer" style="margin-left: -195px;">
+            <div>
+                <span>
+                    <a href="javascript:;">关于我们</a>
+                </span>
+                <span>
+                    <a href="javascript:;">版权公告</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="layui/layui.js"></script>
+    <script src="js/universityIntro.js"></script>
+
+</body>
+
+</html>

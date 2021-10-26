@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>业问</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <style>
+        div .content {
+            width: 1536px;
+            height: 618px;
+            background-color: #eeeeee;
+            margin-top: 60px;
+        }
+
+        #logo {
+            width: 200px;
+            height: 185px;
+            background-image: url(images/logo.png);
+            margin: 0 auto;
+        }
+
+        #dropBtn {
+            display: inline !important;
+            width: 86px;
+            text-align: left !important;
+        }
+
+        .searchBox {
+            width: 800px;
+            height: 44px;
+            margin-top: 50px;
+            margin-left: 450px;
+        }
+
+        .searchBox input {
+            width: 450px;
+            height: 44px;
+        }
+
+        #rankBox {
+            width: 100%;
+            height: 288px;
+            margin-top: 50px;
+        }
+
+        #rankBox legend{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 17px;
+        }
+        #schoolRankBox {
+            width: 500px;
+            height: 288px;
+            float: left;
+            margin-left: 249px;
+        }
+
+        #proRankBox {
+            width: 500px;
+            height: 100%;
+            float: right;
+            margin-right: 249px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo layui-hide-xs layui-bg-black">
+                业问-专业解惑
+            </div>
+            <ul class="layui-nav layui-layout-left">
+                <!-- 移动端显示 -->
+                <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
+                    <i class="layui-icon layui-icon-spread-left"></i>
+                </li>
+                <li class="layui-nav-item layui-hide-xs"><a href="javascript:;">主页</a></li>
+                <li class="layui-nav-item layui-hide-xs"><a href="help.html">帮助</a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+                    <a href="javascript:;">
+                        <img src="images/userPhoto.jpg" class="layui-nav-img">
+                        <span id="uID" >
+
+                        </span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">个人中心</a></dd>
+                        <dd><a href="">消息</a></dd>
+                        <dd><a href="javascript:exit();">注销</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-more-vertical"></i>
+                    </a>
+                </li>
+            </ul>s
+        </div>
+
+        <!-- 内容主体区域 -->
+        <div class="content">
+            <div id="logo"></div>
+            <div class="searchBox">
+                <button id='dropBtn' class="layui-btn layui-btn-lg layui-btn-normal layui-btn-radius">
+                    <span id='schoolOrPro' style="margin-left:-5px">学校</span>
+                    <i class="layui-icon layui-icon-triangle-d layui-font-12"></i>
+                </button>
+                <input type="text" class="layui-input" style="display: inline !important;">
+                <button id="searchButton" class="layui-btn layui-btn-lg layui-btn-normal"
+                    style="display: inline !important; margin-left: -3px;">搜索</button>
+            </div>
+            <div id="rankBox">
+                <div id="schoolRankBox" >
+                    <fieldset class="layui-elem-field layui-field-title " >
+                        <legend style="margin: auto; padding: 0 !important;">高校排名</legend>
+                        <legend>1.北京大学</legend>
+                        <legend>2.清华大学</legend>
+                        <legend>3.中国科技大学</legend>
+                        <legend>4.哈尔滨工业大学</legend>
+                        <legend>5.中山大学</legend>
+                    </fieldset>
+                </div>
+                <div id="proRankBox">
+                    <fieldset class="layui-elem-field layui-field-title " >
+                        <legend style="margin: auto; padding: 0 !important;">专业排名</legend>
+                        <legend>1.会计学</legend>
+                        <legend>2.视觉传达设计</legend>
+                        <legend>3.国际贸易</legend>
+                        <legend>4.金融学</legend>
+                        <legend>5.法学</legend>
+                    </fieldset>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="layui-footer" style="margin-left: -195px;">
+            <div>
+                <span>
+                    <a href="javascript:;">关于我们</a>
+                </span>
+                <span>
+                    <a href="javascript:;">版权公告</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="layui/layui.js"></script>
+<script src="js/yewen.js"></script>
+<script type="text/javascript">
+    var searchButton = document.getElementById("searchButton");
+    searchButton.onclick=function() {
+        let searchType = document.getElementById("schoolOrPro");
+        if (searchType.innerHTML.includes("学校")) {
+            console.log(localStorage.getItem('uID'));
+            window.open("universityIntro.html");
+        } else {
+            window.open("proSearch.jsp");
+        }
+    }
+    layui.use('dropdown', function () {
+        var dropdown = layui.dropdown
+        dropdown.render({
+            elem: '#dropBtn',
+            trigger: 'hover',
+            data: [
+                {
+                    title: '学校',
+                    id: "schoolChosen",
+                    name: "schoolChosen"
+                },
+                {
+                    title: '专业',
+                    id: "proChosen",
+                    name: "proChosen"
+                }
+            ],
+            click: function (object) {
+                var id = object.id;
+                var btnText = document.querySelector("#dropBtn span");
+                if (id == "schoolChosen") {
+                   btnText.innerHTML = "学校";
+                } else {
+                    btnText.innerHTML = "专业";
+                }
+
+            }
+        })
+    })
+</script>
+</body>
+
+</html>

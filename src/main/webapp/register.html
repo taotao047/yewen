@@ -16,26 +16,26 @@
 <body>
 <div class="header">注册</div>
 <hr>
-<form action="#">
+<div class="form">
     <div class="input-group">
         <span class="material-icons">
          phone_android
         </span>
-        <input type="text" id="uPhone" placeholder="请输入手机号">
+        <input type="text" id="uPhone" placeholder="请输入手机号" autocomplete="off">
     </div>
     <br>
     <div class="input-group">
         <span class="material-icons">
          account_circle
          </span>
-        <input type="text" id="uID" placeholder="请输入用户名">
+        <input type="text" id="uID" placeholder="请输入用户名" autocomplete="off">
     </div>
     <br>
     <div class="input-group">
         <span class="material-icons">
             email
         </span>
-        <input type="text" id="uEmail" placeholder="请输入邮箱">
+        <input type="text" id="uEmail" placeholder="请输入邮箱" autocomplete="off">
     </div>
     <br>
     <div class="input-group">
@@ -52,8 +52,8 @@
         </span>
     </div>
     <br>
-    <button type="submit">注册</button>
-</form>
+    <button type="submit" onclick="submit()">注册</button>
+</div>
 
 </body>
 </html>

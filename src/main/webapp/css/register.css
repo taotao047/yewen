@@ -25,12 +25,13 @@ body {
 
 .input-group {
     display: flex;
+    position: relative;
 }
 
-span[class~='material-icons'] {
+.form span[class~='material-icons'] {
     display: flex;
     border: 2px solid #9F9F9F;
-    font-size: 27px;
+    font-size: 22px;
     background-color: #eceaea;
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
@@ -72,15 +73,15 @@ input[placeholder] {
 }
 
 input[placeholder]:focus {
-    animation: blueFadeIn 1s;
+    animation: blueFadeIn 0.5s;
     border: 2px solid #4285f4;
 }
 
-form div[id="input-group"]:last-child {
+.form div[id="input-group"]:last-child {
     display: flex;
 }
 
-form input[type='checkbox'] {
+.form input[type='checkbox'] {
     width: 15px;
     height: 15px;
     background-color: #fff;
@@ -89,8 +90,8 @@ form input[type='checkbox'] {
     outline: none;
 }
 
-form span {
-    font-size: 17px;
+.form span {
+    font-size: 16px;
 }
 
 a[href="javascript:;"] {
@@ -117,10 +118,28 @@ button[type="submit"]:hover {
     color: #212529;
 }
 
-#registerInfo {
-    visibility: hidden;
-    text-align: center;
-    margin-top: 4%;
-    padding-left: 45px;
+@-webkit-keyframes slide-feedback {
+    0% {
+        left: 18rem;
+    }
+    50% {
+        left: 20rem;
+    }
+    100% {
+        left: 18rem;
+    }
+}
+
+.reg-feedback {
+    animation: slide-feedback 0.2s;
+    animation-iteration-count: 2;
+    color: red;
+}
+
+.error-message {
+    position: absolute;
+    width: fit-content;
+    left: 18rem;
+    top: 0.4rem;
     color: red;
 }

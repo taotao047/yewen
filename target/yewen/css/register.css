@@ -11,88 +11,93 @@ body {
     font-size: 24px;
     width: 200px;
     height: 64px;
-    /*background-color: skyblue;*/
     text-align: center;
     line-height: 64px;
     z-index: 2;
 }
 
-.inputBoxs {
-    position: absolute;
-    z-index: 1;
-    width: 335px;
-    height: 439px;
-    /*background-color: pink;*/
-    top: 133px;
-    left: 38%;
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
 }
-
-.inputBoxs > .a-inputBox {
-    height: 38px;
-    /*background-color: seagreen;*/
-    margin-top: 15px;
-    padding-left: 45px;
+.input-group{
+    display: flex;
 }
-
-.a-inputBox label {
-    display: block;
+span[class~='material-icons']{
+    display: flex;
+    border:2px solid #9F9F9F;
+    font-size: 27px;
+    background-color: #eceaea;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    border-right-style: none;
+}
+input[placeholder] {
+    display: flex;
+    width: 225px;
+    height: 30px;
+    font-size: 16px;
+    outline: none;
     border: 2px solid #9F9F9F;
-    border-radius: 12px;
-    width: 290px;
-    height: 30px;
-    float: left;
-    margin-top: 4px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
-
-/*.a-inputBox label:hover{*/
-/*    border-color: #4285f4;*/
-/*}*/
-.inputBoxs .a-inputBox input {
-    border: 0 none;
-    width: 86%;
-    height: 30px;
-    font-size: 16px;
-    float: left;
-    margin-left: 5px;
+@-webkit-keyframes blueFadeIn {
+    from{border-color: #9F9F9F;}
+    to{border-color: #4285f4;}
 }
+@-webkit-keyframes btnFadeIn{
+    from{
+        background-color: #6f42c1;
+        color: #ffe484;}
+    to{
+        background-color: #ffe484;
+        color: #212529;
+    }
+}
+input[placeholder]:focus {
+    animation: blueFadeIn 1s;
+    border: 2px solid #4285f4;
+}
+form div[id="input-group"]:last-child{
+    display: flex;
+}
+form input[type='checkbox']{
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    outline: none;
+}
+form span {
+    font-size: 17px;
+}
+a[href="javascript:;"]{
+    text-decoration: none;
+    color: black;
+}
+button[type="submit"]{
+    width: 104px;
+    height: 36px;
+    background-color: #6f42c1;
+    color: #ffe484;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 0.25rem;
 
-/*立即注册按钮*/
-.inputBoxs .a-inputBox:nth-last-child(2) button  {
-    border-style: none;
-    background-color: #ff9600;
-    color: white;
-    font-size: 16px;
+    border: 2px solid #ffe484;
     cursor: pointer;
-    border-radius: 20px;
-    width: 100%;
-    height: 100%;
 }
-/*立即注册按钮变深色*/
-.inputBoxs .a-inputBox:nth-last-child(1) button:hover{
-    background-color: #ff7e00;
-}
-
-
-#protocolBox {
-    position: absolute;
-    height: 20px;
-    top: 445px;
-    left: 622px;
-    z-index: 1;
-}
-#protocolBox a{
-    color: #37b5f8;
-}
-#protocolBox a:hover{
-    text-decoration: underline;
-}
-#protocolBox span{
-    font-size: 14px;
-    padding-bottom: 2px;
-}
-#protocolBox input {
-    width: 18px;
-    height: 16px;
+button[type="submit"]:hover{
+    animation: btnFadeIn 0.1s;
+    background-color: #ffe484;
+    color: #212529;
 }
 #registerInfo {
     visibility: hidden;

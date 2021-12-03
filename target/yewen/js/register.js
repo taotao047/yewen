@@ -1,16 +1,14 @@
 /*对输入框的修饰*/
-var input = document.querySelector('.a-inputBox input');
-input.selectionStart = 8;
-for (let inputBox of document.getElementsByTagName('input')) {
-    inputBox.setAttribute("autoComplete", "off");
-    inputBox.addEventListener('focus', function () {
-        this.parentElement.style.setProperty("border-color", "#4285f4");
+$(document).ready(function () {
+    $(this).delegate("input[placeholder]",'focus blur',function () {
+        let elem = $(this);
+        if (elem.is(":focus")){
+            elem.css("border","1px dot #4285f4");
+        }
     })
-    inputBox.addEventListener('blur', function () {
-        this.parentElement.style.setProperty("border-color", "#9F9F9F");
-    })
+})
 
-}
+
 
 //注册提交
 function submit() {

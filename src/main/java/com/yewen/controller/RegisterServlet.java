@@ -29,6 +29,7 @@ public class RegisterServlet extends HttpServlet {
     private static SqlSessionFactory sqlSessionFactory;
     private SqlSession sqlSession;
     private IVisitor iVisitor;
+    /*这*/
     static {
         try {
             inputStream = Resources.getResourceAsStream("MybatisConfig.xml");

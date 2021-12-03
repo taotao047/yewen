@@ -17,11 +17,11 @@ function submit() {
     const errorMessages = $("span[class~='error-message']");
     if (!$("input[type='checkbox']").is(":checked")) {
         if ($("#bottom-text2").length === 0) {
-            $("button[type='submit']").after("<sapn class='reg-feedback' " +
-                "style='color: red;position: relative' id='bottom-text2'>请阅读并同意《用户服务协议》和《隐私政策》</sapn>");
+            $("button[type='submit']").after("<sapn style='color: red;' id='bottom-text2'>请阅读并同意《用户服务协议》和《隐私政策》</sapn>")
         }
-        $("button[type='submit']").after("<span></span>")
         return;
+    } else {
+        $('#bottom-text2').text("");
     }
     if (uPhoneIn.match(PhoneRegex)) {
         errorMessages[0].innerHTML = "";
@@ -82,43 +82,3 @@ function submit() {
         console.log("Error: " + errorThrown);
     })
 }
-
-//注册提交
-// function submit() {
-//     /*对一些行为的处理*/
-//     var registerInfo = document.getElementById("registerInfo");
-
-//     if (!document.getElementById("agreeBox").checked) {//没有勾选同意协议
-//         registerInfo.innerHTML = "请阅读并同意下列协议";
-//         registerInfo.style.setProperty("visibility", "visible");
-//         return;
-//     }
-//     registerInfo.style.setProperty("visibility", "hidden");
-//     registerInfo.innerHTML = "";
-//     var uIDV = this.uID.value;
-//     var uPasswordV = this.uPassword.value;
-//     var uEmailV = this.uEmail.value;
-//     var uPhoneV = this.uPhone.value;
-//     /*执行注册事务*/
-//     var xhr = new XMLHttpRequest();
-//     xhr.open("post", "http://localhost:8080/register");
-//     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-//     var sendText="uID=" + uIDV + "&" +
-//         "uPassword=" + uPasswordV + "&" + "uEmail=" + uEmailV + "&" + "uPhone=" +
-//         uPhoneV;
-//     var encodeText = encodeURI(encodeURI(sendText));
-//     console.log(encodeText);
-//     xhr.send(encodeText);
-//     xhr.onload = function () {
-//         var respText = xhr.responseText;
-//         console.log(respText);
-//         if (respText.match("true")) {
-
-//         } else {
-//             console.log("注册失败");
-//             registerInfo.innerHTML = "手机号、邮箱、用户名重复！"
-//             registerInfo.style.setProperty("visibility", "visible");
-//         }
-//     }
-//
-// }

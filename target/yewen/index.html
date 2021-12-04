@@ -8,8 +8,19 @@
     <title>Document</title>
 </head>
 <body>
-<p>hi~欢迎访问业文</p>
-<script>
-</script>
+    <button onclick="to_register()">转注册页面</button>
+    <button onclick="to_login()">转登陆界面</button>
+    <script>
+        function to_register() {
+            //开一个新窗口
+            // window.open('./register.html')
+
+            location.href='./register.html'
+        }
+        function to_login() {
+            // window.open('./login.html')
+            location.href='./login.html'
+        }
+    </script>
 </body>
 </html>

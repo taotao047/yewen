@@ -53,7 +53,7 @@ public class RegisterServlet extends HttpServlet {
         visitor.setUTel(uPhone);
         visitor.setUEmail(uEmail);
         List<Visitor> list=iVisitor.registerCheck(visitor);
-        System.out.println("list:"+list);
+        System.out.println("visitors:"+list);
         if(list.isEmpty()){//用户可以注册
             System.out.println(visitor);
             iVisitor.saveIntoVisitors(visitor);

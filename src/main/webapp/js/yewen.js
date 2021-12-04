@@ -25,7 +25,7 @@ function init() {
                 }
             });
         });
-        document.getElementById("uID").innerHTML=localStorage.getItem("uID");
+        document.getElementById("uID").innerHTML=localStorage.getItem('uID');
     }else {
         // window.location.href="../login.html";
     }

@@ -19,5 +19,6 @@
     </environments>
     <mappers>
         <mapper class="com.yewen.dao.IVisitor"></mapper>
+        <mapper class="com.yewen.dao.IGuider"></mapper>
     </mappers>
 </configuration>

@@ -109,9 +109,14 @@ if ('WebSocket' in window) {
 
         //是系统信息
         else {
-            //将对方发过来的信息展示在前端。导生或者学生都能收到。
-            console.log(messageJSON.message);
-            setMessageInnerHTML(messageJSON.message, targetID);
+            if(messageJSON.isRecord == true){
+                console.log(messageJSON.message);
+                setMessageInnerHTML(messageJSON.message,messageJSON.targetID,messageJSON.time);
+            }else{
+                //将对方发过来的信息展示在前端。导生或者学生都能收到。
+                console.log(messageJSON.message);
+                setMessageInnerHTML(messageJSON.message,targetID,new Date(parseInt(nS) * 1000).toLocaleString().substr(0,17));
+            }
         }
     }
 
@@ -130,18 +135,20 @@ if ('WebSocket' in window) {
 }
 
 
-function setMessageInnerHTML(message, userID) {
+function setMessageInnerHTML(message, userID,time) {
     var div = document.createElement('div');
     var box = document.createElement('strong');
-    box.innerHTML = userID + ":";
+    var mdiv = document.createElement('div');
+    box.innerHTML =time+" "+userID;
     if (userID == this.userID) {
         box.style.setProperty("color", "green");
     } else {
         box.style.setProperty("color", "#0000FF");
     }
     div.append(box);
-    div.append(message);
+    mdiv.append(message);
     chatBox.append(div);
+    chatBox.append(mdiv);
 }
 
 function sendMsg() {
@@ -149,7 +156,7 @@ function sendMsg() {
     var info = {"isSystem": false, "targetID": targetID, "message": myMessage};
     console.log(JSON.stringify(info))
     ws.send(JSON.stringify(info));
-    setMessageInnerHTML(myMessage, userID);
+    setMessageInnerHTML(myMessage, userID,new Date(parseInt(nS) * 1000).toLocaleString().substr(0,17));
 }
 
 function showChatBox(targetID) {
@@ -175,6 +182,8 @@ function closeChatBlock() {
 //接受别人的聊天请求
 function accept(obj) {
     targetID = obj.parentElement.querySelector("span").innerHTML;
+    var info  = {"isSystem":true,"GuidersResp":true,"Refuse":false,"targetID":targetID};
+    ws.send(JSON.stringify(info));
     showChatBox(targetID);
     obj.parentElement.style.setProperty("display", "none");
 }

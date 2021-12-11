@@ -11,9 +11,9 @@ CREATE TABLE `visitors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 # 导生表
 CREATE TABLE `guiders` (
-                           `guidername` varchar(255) NOT NULL,
-                           `guidermajor` varchar(255) NOT NULL,
-                           `state` tinyint(1) NOT NULL DEFAULT '0',
-                           PRIMARY KEY (`guidername`),
-                           CONSTRAINT `guiders_ibfk_1` FOREIGN KEY (`guidername`) REFERENCES `visitors` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE
+  `guidername` varchar(255) NOT NULL,
+  `guidermajor` varchar(255) NOT NULL,
+  `state` tinyint(1) NOT NULL DEFAULT '0',
+   PRIMARY KEY (`guidername`),
+   CONSTRAINT `guiders_ibfk_1` FOREIGN KEY (`guidername`) REFERENCES `visitors` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

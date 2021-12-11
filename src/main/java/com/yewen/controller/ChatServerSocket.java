@@ -2,15 +2,19 @@ package com.yewen.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.yewen.entity.Message;
 import com.yewen.entity.OnlineMap;
+import com.yewen.entity.Record;
+
 
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.DoubleToIntFunction;
+
 
 @ServerEndpoint("/chat-server/{userID}")
 public class ChatServerSocket {
@@ -23,11 +27,14 @@ public class ChatServerSocket {
     private String userID = null;
     private String targetUserID = null;
 
+    private Record record = null;
+
     @OnOpen
     public void onOpen(@PathParam("userID") String userID, Session session) {
         this.session = session;
         this.userID = userID;
         socketMap.put(userID, this);
+        record = new Record();
         System.out.println(socketMap.toString());
     }
 
@@ -61,10 +68,26 @@ public class ChatServerSocket {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                }else{
+                    List<Message> list = record.getMessageRecords(userID,jsonObject.getString("targetID"));
+                    for(Message m:list){
+                        try {
+                            socketMap.get(jsonObject.getString("targetID")).session.getBasicRemote()
+                                    .sendText("{\"isSystem\":" + false + ",\"targetID\":\""+m.getSender()+"\",\"message\":\" "
+                                            +m.getMessage()+"\",\"isRecord\":"+true+",\"time\":\""+m.getTime()+"\"}");
+                            socketMap.get(userID).session.getBasicRemote()
+                                    .sendText("{\"isSystem\":" + false + ",\"targetID\":\""+m.getSender()+"\",\"message\": \""
+                                            +m.getMessage()+"\",\"isRecord\":"+true+",\"time\":\""+m.getTime()+"\"}");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }
         } else {//已经开始聊天了
             try {
+                record.RecordMessage(userID,jsonObject.getString("targetID"),jsonObject.getString("message"));
+                //记录消息进数据库
                 socketMap.get(jsonObject.getString("targetID")).session.getBasicRemote()
                         .sendText("{\"isSystem\":" + false + ",\"targetID\":" + targetUserID + ",\"message\": \"" + jsonObject.getString("message") + "\"}");
             } catch (IOException e) {

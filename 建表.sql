@@ -17,3 +17,10 @@ CREATE TABLE `guiders` (
    PRIMARY KEY (`guidername`),
    CONSTRAINT `guiders_ibfk_1` FOREIGN KEY (`guidername`) REFERENCES `visitors` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+#历史记录表
+CREATE TABLE `messagerecords` (
+    `sender` varchar(255) NOT NULL,
+    `recevier` varchar(255) NOT NULL,
+     `message` varchar(255) NOT NULL,
+    `time` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
